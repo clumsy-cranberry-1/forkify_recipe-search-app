@@ -1,0 +1,15 @@
+{
+  "name": "forkify-app",
+  "version": "1.0.0",
+  "description": "A final project of The Complete JavaScript Course 2020: From Zero to Expert! Originally called \"Forkify\". I renamed and updated the UI/UX design of the app more to my own liking.",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "fracty": "^1.0.11",
+    "parcel": "^2.10.2"
+  }
+}
