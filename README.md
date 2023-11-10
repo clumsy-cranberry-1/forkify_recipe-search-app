@@ -32,3 +32,6 @@ This project is licensed under the MIT License—refer to the LICENSE.md file fo
 
 **Notes**
 As of now, the course is titled "The Complete JavaScript Course 2023: From Zero to Expert!" Be aware of potential updates.
+
+**Screenshot**  
+![forkify_desktop-full-screenshot](https://github.com/clumsy-cranberry-1/forkify_recipe-search-app/assets/84316275/7de59106-769c-4175-a987-5cc5a9426d45)
