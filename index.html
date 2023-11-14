@@ -6,7 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+    <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700" rel="stylesheet" />
+
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="stylesheet" href="/src/styles/css_reset.css">
 
     <link rel="stylesheet" href="/src/styles/styles.css" />
 
@@ -18,40 +26,30 @@
 <body>
     <div class="container">
         <header class="header">
-            <a href="https://www.fontspace.com/category/bubbles">
+            <a href="">
                 <img
-                    src="https://see.fontimg.com/api/renderfont4/1GD7g/eyJyIjoiZnMiLCJoIjo2NSwidyI6MTAwMCwiZnMiOjY1LCJmZ2MiOiIjM0IzQjNCIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/Zm9ya2lmeQ/chibolddemo.png"
+                    src="https://see.fontimg.com/api/renderfont4/qZOD0/eyJyIjoiZnMiLCJoIjo3OCwidyI6MTIwMCwiZnMiOjY1LCJmZ2MiOiIjM0IzOTM5IiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/Zm9ya2lmeQ/hellobestladysans.png"
                     alt="logo" class="header__logo">
             </a>
-            <!-- <img src="/src/img/logo.png" alt="Logo" class="header__logo" /> -->
 
             <nav class="nav">
                 <ul class="nav__list">
                     <li class="nav__item">
                         <button class="nav__btn nav__btn--add-recipe">
-                            <svg class="nav__icon">
-                                <use href="/src/img/icons.svg#icon-edit"></use>
-                            </svg>
-                            <span>Add recipe</span>
+                            <i class="fa-solid fa-pen-to-square nav__icon"></i>
+                            <span>Add Recipe</span>
                         </button>
                     </li>
                     <li class="nav__item">
                         <button class="nav__btn nav__btn--favourites">
-                            <svg class="nav__icon">
-                                <use href="/src/img/icons.svg#icon-favourite-fill"></use>
-                            </svg>
+                            <i class="fa-solid fa-heart nav__icon"></i>
                             <span>Favourites</span>
                         </button>
                         <div class="favourites">
                             <ul class="favourites__list">
                                 <div class="success__message">
-                                    <div>
-                                        <svg>
-                                            <use href="/src/img/icons.svg#icon-smile"></use>
-                                        </svg>
-                                    </div>
                                     <p>
-                                        No favourites yet. Find a nice recipe and favourite it :)
+                                        No favourites yet :)
                                     </p>
                                 </div>
                             </ul>
@@ -65,48 +63,41 @@
             <form class="search">
                 <input type="text" class="search__field" placeholder="Search for over 1,000,000 Recipes" />
                 <button class="btn search__btn">
-                    <svg class="search__icon">
-                        <use href="/src/img/icons.svg#icon-search"></use>
-                    </svg>
+                    <i class="fa-solid fa-search search__icon"></i>
                 </button>
             </form>
 
+            <!-- results view -->
             <ul class="results">
             </ul>
 
+            <!-- pagination view -->
             <div class="pagination">
             </div>
-
-            <p class="copyright">
-                <!-- to be edited -->
-            </p>
         </div>
 
+        <!-- recipe view -->
         <div class="recipe">
             <div class="success__message">
-                <div>
-                    <svg>
-                        <use href="/src/img/icons.svg#icon-smile"></use>
-                    </svg>
-                </div>
                 <p>Start by searching for a recipe or an ingredient. Have fun!</p>
             </div>
         </div>
     </div>
 
+    <!-- modal - add new recipe -->
     <div class="overlay hidden"></div>
     <div class="add-recipe-window hidden">
         <button class="btn--close-modal">&times;</button>
         <form class="upload">
             <div class="upload__column--data">
                 <h4 class="upload__heading">Recipe data</h4>
-                <input value="Pumpkin Tart" required name="title" type="text" placeholder="Title" />
-                <input value="https://www.smokingchimney.com/recipe-pages/pumpkin-tart.php" required name="sourceUrl"
-                    type="text" placeholder="URL" />
-                <input value="./src//src/img/Pumpkin-Tart-1024x768.jpg" required name="imageUrl" type="text"
-                    placeholder="Image URL" />
-                <input value="Smoking Chimney" required name="publisher" type="text" placeholder="Publisher" />
-                <input value="45" required name="cookingTime" type="number" placeholder="Prep Time" />
+                <input value="" required name="title" type="text" placeholder="Recipe Title" />
+                <input value="" required name="sourceUrl"
+                    type="text" placeholder="Recipe Details URL" />
+                <input value="" required name="imageUrl" type="text"
+                    placeholder="Recipe Image URL" />
+                <input value="" required name="publisher" type="text" placeholder="Publisher" />
+                <input value="" required name="cookingTime" type="number" placeholder="Prep Time (in minutes)" />
                 <input value="8" required name="servings" type="number" placeholder="Servings" />
             </div>
 
@@ -148,9 +139,7 @@
             </div>
 
             <button class="btn upload__btn">
-                <svg>
-                    <use href="/src/img/icons.svg#icon-upload-cloud"></use>s
-                </svg>
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>
                 <span>Upload</span>
             </button>
         </form>

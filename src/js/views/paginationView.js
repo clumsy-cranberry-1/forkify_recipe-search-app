@@ -26,7 +26,7 @@ class PaginationView extends View {
     });
   }
 
-  // PRIVVATE METHODS
+  // PRIVATE METHODS
   _generateHtml() {
     const totalPages = Math.ceil(this._data.results.length / RESULTS_PER_PAGE);
     const activePage = Number(this._data.activePage);
@@ -36,10 +36,8 @@ class PaginationView extends View {
     if (activePage === 1 && totalPages > 1) {
       return `
         <button class="btn--inline pagination__btn--next" data-gotopage=${activePage + 1}>
-            <span>Page ${activePage + 1}</span>
-            <svg class="search__icon">
-                <use href="img/icons.svg#icon-arrow-right"></use>
-            </svg>
+        <span>Page ${activePage + 1}</span>
+        <i class="fa-solid fa-angle-right"></i>
         </button>`;
     }
     // 3) pages between first and last
@@ -47,26 +45,20 @@ class PaginationView extends View {
       return `
         <button class="btn--inline pagination__btn--next" data-gotopage=${activePage + 1}>
             <span>Page ${activePage + 1}</span>
-            <svg class="search__icon">
-                <use href="img/icons.svg#icon-arrow-right"></use>
-            </svg>
+            <i class="fa-solid fa-angle-right"></i>
         </button>
         <button class="btn--inline pagination__btn--prev" data-gotopage=${activePage - 1}>
-            <svg class="search__icon">
-                <use href="img/icons.svg#icon-arrow-left"></use>
-            </svg>
+            <i class="fa-solid fa-angle-left"></i>
             <span>Page ${activePage - 1}</span>
-        </button>`;
-    }
+            </button>`;
+          }
     // 4) last page of many
     if (activePage === totalPages && totalPages > 1) {
       return `
-        <button class="btn--inline pagination__btn--prev" data-gotopage=${activePage - 1}>
-            <svg class="search__icon">
-                <use href="img/icons.svg#icon-arrow-left"></use>
-            </svg>
-            <span>Page ${activePage - 1}</span>
-        </button>`;
+      <button class="btn--inline pagination__btn--prev" data-gotopage=${activePage - 1}>
+      <i class="fa-solid fa-angle-left"></i>
+      <span>Page ${activePage - 1}</span>
+      </button>`;
     }
   }
 }
