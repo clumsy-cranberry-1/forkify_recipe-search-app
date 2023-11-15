@@ -8,17 +8,18 @@ class uploadRecipeView extends View {
     _btnCloseModal = document.querySelector('.btn--close-modal');
     
     // public methods
-    displayModal() {
-        this._openModal();
-        this._closeModal();
-    }
-    
     addHandlerUploadRecipe(handler) {
         this._parentElement.addEventListener("submit", function (e) {
             e.preventDefault();
-            const formData = form2js(this);
-            handler(formData);
+            const dataArr = [...new FormData(this)];
+            const dataObj = Object.fromEntries(dataArr);
+            handler(dataObj);
         })
+    }
+    
+    displayModal() {
+        this._openModal();
+        this._closeModal();
     }
     
     // private methods
@@ -30,7 +31,6 @@ class uploadRecipeView extends View {
         this._btnCloseModal.addEventListener("click", this._toggleModalDisplay.bind(this));
         this._overlay.addEventListener("click", this._toggleModalDisplay.bind(this));
     }
-
 
     _toggleModalDisplay() {
         this._overlay.classList.toggle("hidden");
