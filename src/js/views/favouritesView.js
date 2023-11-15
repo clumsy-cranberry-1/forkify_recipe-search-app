@@ -13,7 +13,6 @@ class FavouritesView extends View {
     this._data = data;
     this._clearHtml();
     const html = this._generateHtml();
-    console.log(html);
     this._parentElement.insertAdjacentHTML('afterbegin', html);
   }
 

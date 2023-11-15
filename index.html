@@ -87,55 +87,55 @@
     <!-- modal - add new recipe -->
     <div class="overlay hidden"></div>
     <div class="add-recipe-window hidden">
-        <button class="btn--close-modal">&times;</button>
+        <button class="btn--close-modal"><i class="fa-solid fa-xmark"></i></button>
         <form class="upload">
             <div class="upload__column--data">
                 <h4 class="upload__heading">Recipe data</h4>
                 <input value="" required name="title" type="text" placeholder="Recipe Title" />
                 <input value="" required name="sourceUrl"
-                    type="text" placeholder="Recipe Details URL" />
+                    type="text" placeholder="Recipe Instructions URL" />
                 <input value="" required name="imageUrl" type="text"
                     placeholder="Recipe Image URL" />
                 <input value="" required name="publisher" type="text" placeholder="Publisher" />
                 <input value="" required name="cookingTime" type="number" placeholder="Prep Time (in minutes)" />
-                <input value="8" required name="servings" type="number" placeholder="Servings" />
+                <input value="" required name="servings" type="number" placeholder="Servings" />
             </div>
 
             <div class="upload__column--ingredients">
                 <h4 class="upload__heading">Ingredients</h4>
 
                 <!-- ingredient #1 -->
-                <input value="" type="text" name="ingredients[0].quantity" placeholder="Quantity" />
+                <input value="" type="text" name="ingredients[0].quantity" placeholder="Qty" />
                 <input value="" type="text" name="ingredients[0].unit" placeholder="Unit" />
                 <input value="" type="text" name="ingredients[0].description" placeholder="Description" />
 
                 <!-- ingredient #2 -->
-                <input value="" type="text" name="ingredients[1].quantity" placeholder="Quantity" />
+                <input value="" type="text" name="ingredients[1].quantity" placeholder="Qty" />
                 <input value="" type="text" name="ingredients[1].unit" placeholder="Unit" />
-                <input value="sugar" type="text" name="ingredients[1].description" placeholder="Description" />
+                <input value="" type="text" name="ingredients[1].description" placeholder="Description" />
 
                 <!-- ingredient #3 -->
-                <input value="" type="text" name="ingredients[2].quantity" placeholder="Quantity" />
+                <input value="" type="text" name="ingredients[2].quantity" placeholder="Qty" />
                 <input value="" type="text" name="ingredients[2].unit" placeholder="Unit" />
-                <input value="eggs" type="text" name="ingredients[2].description" placeholder="Description" />
+                <input value="" type="text" name="ingredients[2].description" placeholder="Description" />
 
             
                 <!-- ingredient #4 -->
-                <input value="" type="text" name="ingredients[3].quantity" placeholder="Quantity" />
+                <input value="" type="text" name="ingredients[3].quantity" placeholder="Qty" />
                 <input value="" type="text" name="ingredients[3].unit" placeholder="Unit" />
-                <input value="soft unsalted butter" type="text" name="ingredients[3].description"
+                <input value="" type="text" name="ingredients[3].description"
                     placeholder="Description" />
 
                 <!-- ingredient #5 -->
-                <input value="" type="text" name="ingredients[4].quantity" placeholder="Quantity" />
+                <input value="" type="text" name="ingredients[4].quantity" placeholder="Qty" />
                 <input value="" type="text" name="ingredients[4].unit" placeholder="Unit" />
-                <input value="self raising flour" type="text" name="ingredients[4].description"
+                <input value="" type="text" name="ingredients[4].description"
                     placeholder="Description" />
 
                 <!-- ingredient #6 -->
-                <input value="" type="text" name="ingredients[5].quantity" placeholder="Quantity" />
+                <input value="" type="text" name="ingredients[5].quantity" placeholder="Qty" />
                 <input value="" type="text" name="ingredients[5].unit" placeholder="Unit" />
-                <input value="salt" type="text" name="ingredients[5].description" placeholder="Description" />
+                <input value="" type="text" name="ingredients[5].description" placeholder="Description" />
             </div>
 
             <button class="btn upload__btn">

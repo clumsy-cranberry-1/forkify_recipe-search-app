@@ -100,19 +100,19 @@ class RecipeView extends View {
         <ul class="recipe__ingredient-list">
         ${ingredients
           .map(ing => {
-          const { unit, description, quantity } = ing;
-          return `
-                <li class="recipe__ingredient">
-                <i class="fa-solid fa-check recipe__icon"></i>
-                <div class="recipe__quantity">
-                <strong>${quantity ? fracty(quantity) : ""}</strong>
-                </div>
-                <div class="recipe__description">
-                <span class="recipe__unit"><strong>${unit || ""} </strong></span>${description}
-                </div>
-                </li>`;
-              })
-              .join('')}
+            const { unit, description, quantity } = ing;
+            return `
+                  <li class="recipe__ingredient">
+                  <i class="fa-solid fa-check recipe__icon"></i>
+                  <div class="recipe__quantity">
+                   <strong>${quantity ? fracty(quantity) + "&nbsp;" : ""}</strong>
+                  </div>
+                  <div class="recipe__description">
+                    <span class="recipe__unit"><strong>${unit + "&nbsp;" || ""}</strong></span>${description}
+                  </div>
+                  </li>`;
+          }).join('')
+        }
         </ul>
       </div>
         
@@ -125,8 +125,8 @@ class RecipeView extends View {
         </p>
         <a class="btn--small recipe__btn" href=${sourceUrl}"
         target="_blank">
-        <span style="margin-right: 1rem;">Follow Link</span>
-        <i class="fa-solid fa-arrow-up-right-from-square search__icon"></i>
+        <span>Follow Link&nbsp;</span>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </a>
       </div>
     `;
