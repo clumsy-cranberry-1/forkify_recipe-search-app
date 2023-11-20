@@ -2,9 +2,7 @@ export default class View {
   renderSpinner() {
     const spinnerHtml = `
       <div class="spinner">
-        <svg>
-          <use href="/src/img/icons.svg.svg#icon-loader"></use>
-        </svg>
+        <i class="fa-solid fa-spinner fa-spin-pulse"></i>
       </div>
     `;
     this._clearHtml();
@@ -15,11 +13,6 @@ export default class View {
     message = this._errorMessage;
     const errorHtml = `
       <div class="error__message">
-        <div>
-          <svg>
-            <use href="/src/img/icons.svg#icon-alert-triangle"></use>
-          </svg>
-        </div>
         <p>${message}</p>
       </div>
     `;

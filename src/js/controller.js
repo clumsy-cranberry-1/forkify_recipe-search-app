@@ -7,6 +7,7 @@
 
 // ////////////////////////////////////////
 // IMPORTS
+import { async } from 'regenerator-runtime';
 import * as model from './model.js';
 import favouritesView from './views/favouritesView.js';
 import paginationView from './views/paginationView.js';
@@ -24,6 +25,7 @@ const controlSearchResults = async function () {
     const query = await searchView.getQuery();
     if (!query) return;
     await model.getSearchResults(query);
+
     // 2) render search results
     resultsView.renderSearchResults(model.getSearchResultsPage(1));
 
@@ -50,11 +52,12 @@ const controlPagination = function (goToPage) {
 // RECIPE DETAILS
 const controlRecipe = async function () {
   try {
-    const hashId = window.location.hash.slice(1);
-    if (!hashId) return;
+    const hashID = window.location.hash.slice(1);
+    if (!hashID) return;
+
     // 1) get recipe from API
-    recipeView.renderSpinner();
-    await model.getRecipe(hashId);
+    // recipeView.renderSpinner();
+    await model.getRecipe(hashID);
 
     // 2) render recipe html
     recipeView.renderRecipe(model.state.recipe);
@@ -104,7 +107,6 @@ const controlStorageFavourites = function () {
 // ////////////////////////////////////////
 // UPLOAD NEW RECIPE WITH FORM
 const controlUploadRecipe = async function (newRecipeData) {
-  console.log("controller", newRecipeData);
   try {
     // 1) upload new recipe date
     await model.uploadUserRecipe(newRecipeData);
@@ -112,21 +114,49 @@ const controlUploadRecipe = async function (newRecipeData) {
     // 2) render recipe
     recipeView.renderRecipe(model.state.recipe);
 
-    // 3) update favourites list
-    favouritesView.renderFavouritesList(model.state.favourites);
+    // 3) need to somehow add the new recipe's id to the page's url.
+    window.location.hash = model.state.recipe.id;
+
+    // 4) need to close the upload recipe modal. 
+    uploadRecipeView.hideModal();
   } catch (error) {
     console.log(error);
+    recipeView.renderErrorMessage(error);
   }
 };
 
 // ////////////////////////////////////////
+// DELETE RECIPE
+const controlDeleteRecipe = async function() {
+  try {
+    // 1) delete recipe by id
+    const hashID = window.location.hash.slice(1);
+    if (!hashID) return;
+    await model.deleteUserRecipe(hashID);
+
+    // 2) remove recipe from favourites list by id
+    model.deleteFavourite(hashID);
+
+    // 3) navigate to the given url
+    window.location.href = "/";
+
+  } catch(error) {
+    recipeView.renderErrorMessage();
+  }
+}
+
+// ////////////////////////////////////////
 // EVENT HANDLERS
+/**
+ * @todo add a delete recipe handler?
+ */
 const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerButton(controlPagination);
   recipeView.addHandlerRenderRecipe(controlRecipe);
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerFavouriteRecipe(controlFavourites);
+  recipeView.addHandlerDeleteRecipe(controlDeleteRecipe);
   favouritesView.addHandlerRenderFavourites(controlStorageFavourites);
   uploadRecipeView.displayModal();
   uploadRecipeView.addHandlerUploadRecipe(controlUploadRecipe);

@@ -5,7 +5,7 @@ const timeout = function (ms) {
     setTimeout(function () {
       reject(
         new Error(
-          `Connection Request Time-out. The requested site did not respond to a connection request. Please wait a few moments and try again.`
+          `Connection request time-out. The requested site did not respond to a connection request. Please wait a few minutes and try again.`
         )
       );
     }, ms);
@@ -18,7 +18,7 @@ export const getJSON = async function (url) {
     const fetchURL = fetch(url);
     const response = await Promise.race([fetchURL, timeout(TIMEOUT_MS)]);
     if (!response.ok && response.status === 400) {
-      throw new Error('Something went wrong!');
+      throw new Error('Sorry, something went wrong. Please wait a few minutes and try again.');
     }
     return await response.json();
   } catch (error) {
@@ -26,7 +26,7 @@ export const getJSON = async function (url) {
   }
 };
 
-// POST data to API
+// POST data (new recipe) to API
 export const sendJSON = async function (url, uploadData) {
   try {
     const fetchURL = fetch(url, {
@@ -38,9 +38,24 @@ export const sendJSON = async function (url, uploadData) {
     });
     const response = await Promise.race([fetchURL, timeout(TIMEOUT_MS)]);
     if (!response.ok && response.status === 400) {
-      throw new Error('Something went wrong!');
+      throw new Error('Sorry, something went wrong. Please wait a few minutes and try again.');
     }
     return await response.json();
+  } catch (error) {
+    throw error;
+  }
+};
+
+// DELETE data (recipe) associated with provided API key
+export const deleteUserRecipe = async function (url) {
+  try {
+    const fetchURL = fetch(url, {
+      method: 'DELETE'
+    });
+    const response = await Promise.race([fetchURL, timeout(TIMEOUT_MS)]);
+    if (!response.ok && response.status === 400) {
+      throw new Error('Sorry, something went wrong. Please wait a few minutes and try again.');
+    }
   } catch (error) {
     throw error;
   }

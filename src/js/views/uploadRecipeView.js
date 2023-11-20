@@ -14,6 +14,7 @@ class uploadRecipeView extends View {
             const dataArr = [...new FormData(this)];
             const dataObj = Object.fromEntries(dataArr);
             handler(dataObj);
+            this._closeModal();
         })
     }
     
