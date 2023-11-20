@@ -85,3 +85,8 @@ select {
 a {
 	text-decoration: none;
 }
+
+button,
+a {
+	cursor: pointer;
+}

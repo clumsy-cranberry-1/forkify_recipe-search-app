@@ -36,28 +36,24 @@ class PaginationView extends View {
     if (activePage === 1 && totalPages > 1) {
       return `
         <button class="btn--inline pagination__btn--next" data-gotopage=${activePage + 1}>
-        <span>Page ${activePage + 1}&nbsp;</span>
-        <i class="fa-solid fa-angle-right"></i>
+          <i class="fa-solid fa-angle-right"></i>
         </button>`;
-    }
-    // 3) pages between first and last
-    if (activePage < totalPages) {
-      return `
+      }
+      // 3) pages between first and last
+      if (activePage < totalPages) {
+        return `
         <button class="btn--inline pagination__btn--next" data-gotopage=${activePage + 1}>
-            <span>Page ${activePage + 1}&nbsp;</span>
-            <i class="fa-solid fa-angle-right"></i>
+          <i class="fa-solid fa-angle-right"></i>
         </button>
         <button class="btn--inline pagination__btn--prev" data-gotopage=${activePage - 1}>
-            <i class="fa-solid fa-angle-left"></i>
-            <span>&nbsp;Page ${activePage - 1}</span>
-            </button>`;
+          <i class="fa-solid fa-angle-left"></i>
+        </button>`;
           }
     // 4) last page of many
     if (activePage === totalPages && totalPages > 1) {
       return `
       <button class="btn--inline pagination__btn--prev" data-gotopage=${activePage - 1}>
-      <i class="fa-solid fa-angle-left"></i>
-      <span>&nbsp;Page ${activePage - 1}</span>
+        <i class="fa-solid fa-angle-left"></i>
       </button>`;
     }
   }

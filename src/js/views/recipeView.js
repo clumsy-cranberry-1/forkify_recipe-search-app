@@ -1,16 +1,12 @@
 import View from './View.js';
-import icons from "url:../../img/icons.svg"; // Parcel 2
 import fracty from 'fracty';
 
 class RecipeView extends View {
   _parentElement = document.querySelector('.recipe');
   _data;
-  _errorMessage = "We couldn't find the page you were looking for.";
+  _errorMessage = "Sorry, we couldn't find the page you were looking for.";
 
   //  PUBLIC METHODS
-  /**
- * @param {*} handler control function from contoller.js
- */
   addHandlerRenderRecipe(handler) {
     const windowEvents = ['hashchange', 'load'];
     windowEvents.forEach(winEv => {
@@ -37,10 +33,14 @@ class RecipeView extends View {
     });
   }
 
-  /**
-   * @param {*} data the data to be rendered 
-   * @returns an error if the data does not exist or renders the html generated with _generateHtml();
-   */
+  addHandlerDeleteRecipe(handler) {
+    this._parentElement.addEventListener("click", function (e) {
+      const deleteBtn = e.target.closest(".btn--delete-recipe");
+      if (!deleteBtn) return;
+      handler();
+    })
+  }
+
   renderRecipe(data) {
     if (!data || data.length === 0) {
       return this.renderErrorMessage(this._errorMessage);
@@ -52,11 +52,8 @@ class RecipeView extends View {
   }
 
   // PRIVATE METHODS
-  /**
-   * @returns html to be rendered by renderRecipe();
-   */
   _generateHtml() {
-    const { isFavourite, cookingTime, imageUrl, ingredients, key, publisher, servings, sourceUrl, title } = this._data;
+    const { isFavourite, cookingTime, imageUrl, ingredients, key, publisher, servings, sourceUrl, title } = this._data; // where "key" suggests that the recipe is user-generated
     return `
       <figure class="recipe__fig">
           <img src=${imageUrl} alt="${title}" class="recipe__img" />
@@ -99,11 +96,11 @@ class RecipeView extends View {
         <h2 class="recipe__ingredients-heading">Ingredients</h2>
         <ul class="recipe__ingredient-list">
         ${ingredients
-          .map(ing => {
-            const { unit, description, quantity } = ing;
-            return `
+        .map(ing => {
+          const { unit, description, quantity } = ing;
+          return `
                   <li class="recipe__ingredient">
-                  <i class="fa-solid fa-check recipe__icon"></i>
+                  <span class="recipe__icon">&bull;</span>
                   <div class="recipe__quantity">
                    <strong>${quantity ? fracty(quantity) + "&nbsp;" : ""}</strong>
                   </div>
@@ -111,8 +108,8 @@ class RecipeView extends View {
                     <span class="recipe__unit"><strong>${unit + "&nbsp;" || ""}</strong></span>${description}
                   </div>
                   </li>`;
-          }).join('')
-        }
+        }).join('')
+      }
         </ul>
       </div>
         
@@ -125,10 +122,23 @@ class RecipeView extends View {
         </p>
         <a class="btn--small recipe__btn" href=${sourceUrl}"
         target="_blank">
-        <span>Follow Link&nbsp;</span>
-        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <span>Follow Link</span>
+        <i class="fa-solid fa-arrow-up-right-from-square btn--icon__margin-left"></i>
         </a>
       </div>
+
+      ${key ?
+        `
+        <div class="recipe__delete">
+            <a class="btn--delete-recipe">
+              <i class="fa-solid fa-trash-can btn--icon__margin-right"></i>
+              <span class="">Delete Recipe</span>
+            </a>
+            <p><small>(THIS ACTION CAN NOT BE UNDONE)</small></p>
+        </div>
+        ` : 
+        ""
+      }
     `;
   }
 }
