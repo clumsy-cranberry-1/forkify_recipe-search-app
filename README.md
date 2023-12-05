@@ -1,6 +1,6 @@
 # Forkify Web App
 
-Welcome to the Forkify Recipe App — a culmination of 68 hours of comprehensive learning, integrating modern **Object-Oriented Programming (OOP) principles, Asynchronous JavaScript techniques, MVC Architecture Design, and seamless API integrations**. This was the final project for the Udemy "The Complete JavaScript Course 2023: From Zero to Expert!" course, instructed by Jonas Schmedtmann.
+Welcome to the Forkify Recipe App — a culmination of 68 hours of comprehensive learning, integrating modern **Object-Oriented Programming (OOP) principles, Asynchronous JavaScript techniques, MVC Architecture Design, and seamless API integrations**. This was the final project for the Udemy "The Complete JavaScript Course 2021: From Zero to Expert!" course, instructed by Jonas Schmedtmann.
 
 ## Overview  
 The Forkify Recipe App enables users to discover and explore recipes effortlessly using the [Forkify API](https://forkify-api.herokuapp.com/v2) (created by the course instructor). Dive into the world of culinary delights by accessing recipe details such as cooking time, ingredients, and dynamic serving adjustments. Take advantage of the favorite feature, with seamless local storage implementation — no database required.
