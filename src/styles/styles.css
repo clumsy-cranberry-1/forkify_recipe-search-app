@@ -57,7 +57,7 @@ html {
 /* header / nav start */
 .header {
 	grid-area: head;
-	padding: 1.5rem 0;
+	padding: 3rem 0;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -65,7 +65,17 @@ html {
 }
 
 .header__logo {
-	height: 3.5rem;
+	display: flex;
+	align-items: center;
+}
+
+.header__logo img:first-of-type {
+	height: clamp(4rem, 10vw, 5.5rem);
+	
+}
+
+.header__logo img:last-of-type {
+	height: clamp(3rem, 8vw, 4rem);
 }
 
 .nav__list {
