@@ -1,6 +1,18 @@
-# Forkify Web App
+<div align=center>
+<img src="src/img/forkify_logo__trans.png" width=160px />
+</div>
 
-Welcome to the Forkify Recipe App — a culmination of 68 hours of comprehensive learning, integrating modern **Object-Oriented Programming (OOP) principles, Asynchronous JavaScript techniques, MVC Architecture Design, and seamless API integrations**. This was the final project for the Udemy "The Complete JavaScript Course 2021: From Zero to Expert!" course, instructed by Jonas Schmedtmann.
+<div align=center>
+<img src="src/img/forkify_logo_name__trans.png" width=200px />
+</div>
+
+<div align=center>
+  
+# Forkify &rarr; Recipe Search App
+
+</div>
+
+Welcome to the Forkify Recipe App — a culmination of 68 hours of comprehensive learning, integrating modern **Object-Oriented Programming (OOP) principles, Asynchronous JavaScript techniques, MVC Architecture Design, and seamless API integrations**. This was the final project for the Udemy course, "The Complete JavaScript Course 2021", instructed by Jonas Schmedtmann.
 
 ## Overview
 
@@ -12,7 +24,8 @@ The Forkify Recipe App enables users to discover and explore recipes effortlessl
 2. JavaScript (ES6): No frameworks — pure vanilla JavaScript for robust functionality.
 3. Parcel: Employed as the module bundler, integrating Axios for fetching and Babel for compiling next-gen JavaScript.
 
-### Installation  
+### Installation
+
 1. Clone the repository.
 2. Install dependencies using npm install.
 3. Run the app with npm start.
@@ -42,7 +55,7 @@ This project is licensed under the MIT License—refer to the LICENSE.md file fo
 As of now, the course is titled "The Complete JavaScript Course 2023: From Zero to Expert!" Be aware of potential updates.
 Most of the styling and layout was given in the starter code files of the project. I made a lot of changes to the styling but left the original layout as is. Thus, the app design is not responsive and is best viewed on screen sizes of +1180px in width (iPad Air, iPad Pro, 13" Laptop Screens and above).
 
-### Desktop Screenshot  
+### Screenshot  
 
 ![final-app-screenshot](https://github.com/melissaveraherbst/forkify_recipe-search-app/assets/84316275/261de451-118d-4023-8ae6-c84be2c3c0d9)
 
