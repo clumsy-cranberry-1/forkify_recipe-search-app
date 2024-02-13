@@ -1,14 +1,14 @@
 <div align=center>
-<img src="src/img/forkify_logo__trans.png" width=160px />
+<img src="src/img/forkify_logo__trans.png" width=20% />
 </div>
 
 <div align=center>
-<img src="src/img/forkify_logo_name__trans.png" width=200px />
+<img src="src/img/forkify_logo_name__trans.png" width=20% />
 </div>
 
 <div align=center>
   
-# Forkify &rarr; Recipe Search App
+# Forkify | Recipe Search App
 
 </div>
 
@@ -59,4 +59,4 @@ Most of the styling and layout was given in the starter code files of the projec
 
 ![final-app-screenshot](https://github.com/melissaveraherbst/forkify_recipe-search-app/assets/84316275/261de451-118d-4023-8ae6-c84be2c3c0d9)
 
-Made with ❤️ by Melissa V. Herbst
+Made with 🧡 by Melissa V. Herbst
